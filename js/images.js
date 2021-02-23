@@ -64,6 +64,11 @@ const images = [
   },
 ];
 
+const getOriginalImg = (image) => {
+  const originalImageRef = image.orginal;
+  return originalImageRef;
+};
+
 const createImgItem = (image) => {
   const liRef = document.createElement("li");
 
@@ -73,6 +78,7 @@ const createImgItem = (image) => {
   const imgRef = document.createElement("img");
   imgRef.setAttribute("src", image.preview);
   imgRef.setAttribute("alt", image.description);
+  imgRef.setAttribute("data-source", image.original);
 
   imgLinkRef.appendChild(imgRef);
   liRef.appendChild(imgLinkRef);
@@ -82,6 +88,8 @@ const createImgItem = (image) => {
 
 const imgItems = images.map((image) => createImgItem(image));
 console.log(imgItems);
+
+const originalImgRef = images.map((image) => getOriginalImg(image));
 
 const imgListRef = document.querySelector(".js-gallery");
 
@@ -95,13 +103,7 @@ const handleOriginalImageOpen = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    event.target.setAttribute("data-source", image.original);
-  }
-};
-
-const handleModalClose = (event) => {
-  if (event.target.nodeName === "ESC" || event.target.nodeName === "BUTTON") {
-    lightBox.classList.remove(".lightbox.is-open");
+    event.target.setAttribute("data-source", originalImgRef);
   }
 };
 
@@ -111,6 +113,12 @@ const handleModalOpen = () => {
     return;
   } else {
     lightBox.classList.add(".lightbox.is-open");
+  }
+};
+
+const handleModalClose = (event) => {
+  if (event.target.nodeName === "ESC" || event.target.nodeName === "BUTTON") {
+    lightBox.classList.remove(".lightbox.is-open");
   }
 };
 
