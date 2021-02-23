@@ -116,7 +116,8 @@ const handleOriginalImageOpen = (event) => {
 
 const handleModalOpen = (event) => {
   event.preventDefault();
-  lightboxImg.setAttribute("src", event.target.dataset["data-source"]);
+  const dataSource = event.target.dataset["data-source"];
+  lightboxImg.setAttribute("src", dataSource);
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
