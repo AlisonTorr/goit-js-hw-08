@@ -83,8 +83,8 @@ const createImgItem = (image) => {
 
 const imgItems = images.map((image) => {
   createImgItem(image);
-  console.log(imgItems);
 });
+console.log(imgItems);
 
 const imgListRef = document.querySelector("js-gallery");
 
