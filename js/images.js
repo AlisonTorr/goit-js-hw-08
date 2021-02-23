@@ -99,6 +99,7 @@ imgListRef.append(...imgItems);
 const liRef = document.querySelector("li");
 const lightBox = document.querySelector(".js-lightbox");
 const lightboxImg = document.querySelector(".lightbox__image");
+console.dir(lightboxImg);
 const img = liRef.querySelector(".js-img");
 const imgDataSource = img.getAttribute("data-source");
 
@@ -108,7 +109,7 @@ const handleOriginalImageOpen = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    event.target.src = event.target.dataset["data-source"];
+    event.target.setAttribute("src", event.target.dataset["data-source"]);
   }
 };
 
