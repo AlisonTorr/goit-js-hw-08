@@ -97,11 +97,8 @@ const imgListRef = document.querySelector(".js-gallery");
 imgListRef.append(...imgItems);
 
 const lightBox = document.querySelector(".js-lightbox");
-const imgs = document.querySelectorAll("js-img");
-console.log(imgs);
-for (const img of imgs) {
-  const imgDataSource = img.getAttribute("data-source");
-}
+const img = liRef.querySelector(".js-img");
+const imgDataSource = img.getAttribute("data-source");
 
 const handleOriginalImageOpen = (event) => {
   event.preventDefault();
