@@ -114,7 +114,7 @@ const handleOriginalImageOpen = (event) => {
 
 const handleModalOpen = (event) => {
   event.preventDefault();
-  lightboxImg.setAttribute("src", event.target.dataset("data-source"));
+  lightboxImg.src = event.target.dataset["data-source"];
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
@@ -123,6 +123,7 @@ const handleModalOpen = (event) => {
 };
 
 const handleModalClose = (event) => {
+  lightboxImg.src = "";
   if (event.target.nodeName === "ESC" || event.target.nodeName === "BUTTON") {
     lightBox.classList.remove(".lightbox.is-open");
   }
