@@ -89,6 +89,7 @@ const imgListRef = document.querySelector(".js-gallery");
 imgListRef.append(...imgItems);
 
 const handleOriginalImageOpen = (event) => {
+  event.preventDefault;
   console.log(event.target);
   if (event.target.nodeName !== "IMG") {
     return;
