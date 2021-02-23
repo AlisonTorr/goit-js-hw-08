@@ -79,6 +79,7 @@ const createImgItem = (image) => {
   imgRef.setAttribute("src", image.preview);
   imgRef.setAttribute("alt", image.description);
   imgRef.setAttribute("data-source", image.original);
+  imgRef.classList.add("js-img");
 
   imgLinkRef.appendChild(imgRef);
   liRef.appendChild(imgLinkRef);
@@ -89,13 +90,20 @@ const createImgItem = (image) => {
 const imgItems = images.map((image) => createImgItem(image));
 console.log(imgItems);
 
-const originalImgRef = images.map((image) => getOriginalImg(image));
+const originalImgRefs = images.map((image) => getOriginalImg(image));
 
 const imgListRef = document.querySelector(".js-gallery");
 
 imgListRef.append(...imgItems);
 
 const lightBox = document.querySelector(".js-lightbox");
+const imgs = document.querySelectorAll("js-img");
+console.log(imgs);
+for (const img of imgs) {
+  const imgDataSource = img.getAttribute("data-source");
+  console.log(imgDataSource);
+  return imgDataSource;
+}
 
 const handleOriginalImageOpen = (event) => {
   event.preventDefault();
@@ -103,7 +111,7 @@ const handleOriginalImageOpen = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    event.target.setAttribute("data-source", originalImgRef);
+    event.target.setAttribute("src", imgDataSource);
   }
 };
 
@@ -125,3 +133,10 @@ const handleModalClose = (event) => {
 imgListRef.addEventListener("click", handleOriginalImageOpen);
 liRef.addEventListener("click", handleModalOpen);
 imgListRef.addEventListener("click", handleModalClose);
+
+const arrImages = imgItems.reduce(
+  (liStr, elem) =>
+    liStr +
+    `<li class="gallery_item"><a class="gallerylink" href="${elem.original}"><img class="gallery_image" src="${elem.preview}" data-source="${elem.original}" alt="${elem.description}"></li></a>`,
+  ``
+);
