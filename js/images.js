@@ -99,6 +99,7 @@ imgListRef.append(...imgItems);
 const liRef = document.querySelector("li");
 const lightBox = document.querySelector(".js-lightbox");
 const lightboxImg = document.querySelector(".lightbox__image");
+
 console.dir(lightboxImg);
 const img = liRef.querySelector(".js-img");
 const imgDataSource = img.getAttribute("data-source");
@@ -130,6 +131,7 @@ const handleModalClose = (event) => {
   }
 };
 
-imgListRef.addEventListener("click", handleOriginalImageOpen);
 liRef.addEventListener("click", handleModalOpen);
+imgListRef.addEventListener("click", handleOriginalImageOpen);
+
 imgListRef.addEventListener("click", handleModalClose);
