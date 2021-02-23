@@ -96,6 +96,8 @@ const imgListRef = document.querySelector(".js-gallery");
 
 imgListRef.append(...imgItems);
 
+const liRef = document.querySelector("li");
+
 const lightBox = document.querySelector(".js-lightbox");
 const img = liRef.querySelector(".js-img");
 const imgDataSource = img.getAttribute("data-source");
@@ -106,7 +108,7 @@ const handleOriginalImageOpen = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    event.target.setAttribute("src", imgDataSource);
+    event.target.setAttribute("src", event.target.dataset("data-source"));
   }
 };
 
@@ -128,10 +130,3 @@ const handleModalClose = (event) => {
 imgListRef.addEventListener("click", handleOriginalImageOpen);
 liRef.addEventListener("click", handleModalOpen);
 imgListRef.addEventListener("click", handleModalClose);
-
-const arrImages = imgItems.reduce(
-  (liStr, elem) =>
-    liStr +
-    `<li class="gallery_item"><a class="gallerylink" href="${elem.original}"><img class="gallery_image" src="${elem.preview}" data-source="${elem.original}" alt="${elem.description}"></li></a>`,
-  ``
-);
