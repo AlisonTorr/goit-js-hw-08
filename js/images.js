@@ -108,7 +108,7 @@ const handleOriginalImageOpen = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    event.target.setAttribute("src", event.target.dataset("data-source"));
+    event.target.src = event.target.dataset["data-source"];
   }
 };
 
