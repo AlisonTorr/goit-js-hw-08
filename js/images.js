@@ -88,13 +88,16 @@ const imgListRef = document.querySelector(".js-gallery");
 
 imgListRef.append(...imgItems);
 
-imgListRef.addEventListener("click", handleOriginalImageOpen);
-
 const handleOriginalImageOpen = (event) => {
-  //   showOriginalImg(event.target);
   console.log(event.target);
+  if (event.target.nodeName !== "IMG") {
+    return;
+  }
+  //   showOriginalImg(event.target);
   const currentImg = event.target;
   console.log(event.target.nodeName);
 };
+
+imgListRef.addEventListener("click", handleOriginalImageOpen);
 
 const showOriginalImg = (liRef) => imgRef.data - soure;
