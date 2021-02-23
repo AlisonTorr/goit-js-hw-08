@@ -88,22 +88,24 @@ const imgListRef = document.querySelector(".js-gallery");
 
 imgListRef.append(...imgItems);
 
+const lightBox = document.querySelector(".js-lightbox");
+
 const handleOriginalImageOpen = (event) => {
   event.preventDefault();
   console.log(event.target);
   if (event.target.nodeName !== "IMG") {
     return;
+  } else {
+    lightBox.classList.add(".lightbox.is-open");
   }
-  const originalImgRef = event.target.original;
 };
 
-const handleModalOpen = () => {
-  const lightBox = document.querySelector(".js-lightbox");
-  lightBox.classList.add(".lightbox.is-open");
+const handleModalClose = (event) => {
+  if (event.target.nodeName === "ESC" || event.target.nodeName === "BUTTON") {
+    lightBox.classList.remove(".lightbox.is-open");
+  }
 };
-
-liRef.addEventListener("click", handleModalOpen);
 
 imgListRef.addEventListener("click", handleOriginalImageOpen);
 
-const showOriginalImg = (liRef) => imgRef.data - soure;
+imgListRef.addEventListener("click", handleModalClose);
