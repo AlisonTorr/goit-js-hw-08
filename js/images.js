@@ -101,8 +101,6 @@ const imgs = document.querySelectorAll("js-img");
 console.log(imgs);
 for (const img of imgs) {
   const imgDataSource = img.getAttribute("data-source");
-  console.log(imgDataSource);
-  return imgDataSource;
 }
 
 const handleOriginalImageOpen = (event) => {
