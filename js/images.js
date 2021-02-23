@@ -94,10 +94,15 @@ const handleOriginalImageOpen = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   }
-  //   showOriginalImg(event.target);
-  const currentImg = event.target;
-  console.log(event.target.nodeName);
+  const originalImgRef = event.target.original;
 };
+
+const handleModalOpen = () => {
+  const lightBox = document.querySelector(".js-lightbox");
+  lightBox.classList.add(".lightbox.is-open");
+};
+
+liRef.addEventListener("click", handleModalOpen);
 
 imgListRef.addEventListener("click", handleOriginalImageOpen);
 
