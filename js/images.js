@@ -73,7 +73,6 @@ const createImgItem = (image) => {
   const imgRef = document.createElement("img");
   imgRef.setAttribute("src", image.preview);
   imgRef.setAttribute("alt", image.description);
-  imgRef.setAttribute("data-source", image.original);
 
   imgLinkRef.appendChild(imgRef);
   liRef.appendChild(imgLinkRef);
@@ -96,7 +95,7 @@ const handleOriginalImageOpen = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    lightBox.classList.add(".lightbox.is-open");
+    event.target.setAttribute("data-source", image.original);
   }
 };
 
@@ -106,6 +105,15 @@ const handleModalClose = (event) => {
   }
 };
 
-imgListRef.addEventListener("click", handleOriginalImageOpen);
+const handleModalOpen = () => {
+  event.preventDefault();
+  if (event.target.nodeName !== "IMG") {
+    return;
+  } else {
+    lightBox.classList.add(".lightbox.is-open");
+  }
+};
 
+imgListRef.addEventListener("click", handleOriginalImageOpen);
+liRef.addEventListener("click", handleModalOpen);
 imgListRef.addEventListener("click", handleModalClose);
