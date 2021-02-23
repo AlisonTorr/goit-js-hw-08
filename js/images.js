@@ -81,7 +81,10 @@ const createImgItem = (image) => {
   return liRef;
 };
 
-const imgItems = images.map((image) => createImgItem(image));
+const imgItems = images.map((image) => {
+  createImgItem(image);
+  return imgItems;
+});
 
 const imgListRef = document.querySelector("js-gallery");
 
