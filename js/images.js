@@ -110,26 +110,26 @@ const handleOriginalImageOpen = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    event.target.setAttribute("src", event.target.dataset["data-source"]);
+    event.target.setAttribute("src", event.target.dataset.source);
   }
 };
 
 const handleModalOpen = (event) => {
   event.preventDefault();
-  const dataSource = event.target.dataset[source];
+  const dataSource = event.target.dataset.source;
   console.log(dataSource);
   lightboxImg.setAttribute("src", dataSource);
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    lightBox.classList.add(".lightbox.is-open");
+    lightBox.classList.add("lightbox.is-open");
   }
 };
 
 const handleModalClose = (event) => {
   lightboxImg.setAttribute("src", "");
   if (event.target.nodeName === "ESC" || event.target.nodeName === "BUTTON") {
-    lightBox.classList.remove(".lightbox.is-open");
+    lightBox.classList.remove("lightbox.is-open");
   }
 };
 
