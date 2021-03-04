@@ -79,7 +79,7 @@ body {
   transition: opacity var(--animation-duration) var(--timing-function);
 }
 
-.lightbox.is-open {
+.is-open {
   opacity: 1;
   pointer-events: initial;
 }
