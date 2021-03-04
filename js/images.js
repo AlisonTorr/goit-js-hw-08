@@ -71,15 +71,17 @@ const images = [
 
 const createImgItem = (image) => {
   const liRef = document.createElement("li");
+  liRef.classList.add("gallery__item");
 
   const imgLinkRef = document.createElement("a");
   imgLinkRef.setAttribute("href", image.original);
+  imgLinkRef.classList.add("gallery__link");
 
   const imgRef = document.createElement("img");
   imgRef.setAttribute("src", image.preview);
   imgRef.setAttribute("alt", image.description);
   imgRef.setAttribute("data-source", image.original);
-  imgRef.classList.add("js-img");
+  imgRef.classList.add("gallery__image");
 
   imgLinkRef.appendChild(imgRef);
   liRef.appendChild(imgLinkRef);
@@ -95,6 +97,7 @@ console.log(imgItems);
 const imgListRef = document.querySelector(".js-gallery");
 
 imgListRef.append(...imgItems);
+imgListRef.classList.add("gallery");
 
 const liRef = document.querySelector("li");
 const lightBox = document.querySelector(".js-lightbox");
