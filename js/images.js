@@ -105,7 +105,7 @@ const lightBoxImg = document.querySelector(".lightbox__image");
 
 const handleOriginalImageOpen = (event) => {
   event.preventDefault();
-  // console.log(event.target);
+
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
@@ -115,6 +115,8 @@ const handleOriginalImageOpen = (event) => {
 
 const handleModalOpen = (event) => {
   event.preventDefault();
+
+  console.log(event.target);
 
   if (event.target.nodeName !== "IMG") {
     return;
