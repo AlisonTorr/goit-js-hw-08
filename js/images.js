@@ -90,9 +90,6 @@ const createImgItem = (image) => {
 };
 
 const imgItems = images.map((image) => createImgItem(image));
-console.log(imgItems);
-
-// const originalImgRefs = images.map((image) => getOriginalImg(image));
 
 const imgListRef = document.querySelector(".js-gallery");
 
@@ -139,7 +136,6 @@ const handleModalClose = (event) => {
   }
 };
 
-liRef.addEventListener("click", handleModalOpen);
+imgListRef.addEventListener("click", handleModalOpen);
 imgListRef.addEventListener("click", handleOriginalImageOpen);
-
 lightBox.addEventListener("click", handleModalClose);
