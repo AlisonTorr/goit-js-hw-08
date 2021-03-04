@@ -64,10 +64,10 @@ const images = [
   },
 ];
 
-const getOriginalImg = (image) => {
+const getOriginalImg = images.forEach((image) => {
   const originalImageRef = image.orginal;
   return originalImageRef;
-};
+});
 
 const createImgItem = (image) => {
   const liRef = document.createElement("li");
@@ -116,14 +116,16 @@ const handleOriginalImageOpen = (event) => {
 
 const handleModalOpen = (event) => {
   event.preventDefault();
-  const dataSource = event.target.dataset.source;
-  console.log(dataSource);
-  lightboxImg.setAttribute("src", dataSource);
+
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
     lightBox.classList.add("lightbox.is-open");
   }
+
+  const dataSource = event.target.dataset.source;
+  console.log(dataSource);
+  lightboxImg.setAttribute("src", dataSource);
 };
 
 const handleModalClose = (event) => {
