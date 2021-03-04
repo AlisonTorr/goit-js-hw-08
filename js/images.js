@@ -100,7 +100,6 @@ const liRef = document.querySelector("li");
 const lightBox = document.querySelector(".js-lightbox");
 const lightBoxImg = document.querySelector(".lightbox__image");
 
-console.dir(lightBoxImg);
 const img = liRef.querySelector(".js-img");
 const imgDataSource = img.getAttribute("data-source");
 
@@ -124,8 +123,9 @@ const handleModalOpen = (event) => {
   }
 
   const dataSource = event.target.dataset.source;
-  console.log(dataSource);
+  const dataAlt = event.target.dataset.alt;
   lightBoxImg.setAttribute("src", dataSource);
+  lightBoxImg.setAttribute("alt", dataAlt);
 };
 
 const handleModalClose = (event) => {
@@ -138,4 +138,4 @@ const handleModalClose = (event) => {
 liRef.addEventListener("click", handleModalOpen);
 imgListRef.addEventListener("click", handleOriginalImageOpen);
 
-imgListRef.addEventListener("click", handleModalClose);
+lightBox.addEventListener("click", handleModalClose);
