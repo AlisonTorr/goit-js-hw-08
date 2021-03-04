@@ -64,10 +64,10 @@ const images = [
   },
 ];
 
-const getOriginalImg = (image) => {
-  const originalImageRef = image.orginal;
-  return originalImageRef;
-};
+// const getOriginalImg = (image) => {
+//   const originalImageRef = image.orginal;
+//   return originalImageRef;
+// };
 
 const createImgItem = (image) => {
   const liRef = document.createElement("li");
@@ -90,7 +90,7 @@ const createImgItem = (image) => {
 const imgItems = images.map((image) => createImgItem(image));
 console.log(imgItems);
 
-const originalImgRefs = images.map((image) => getOriginalImg(image));
+// const originalImgRefs = images.map((image) => getOriginalImg(image));
 
 const imgListRef = document.querySelector(".js-gallery");
 
