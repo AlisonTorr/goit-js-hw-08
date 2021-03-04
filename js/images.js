@@ -100,9 +100,6 @@ const liRef = document.querySelector("li");
 const lightBox = document.querySelector(".js-lightbox");
 const lightBoxImg = document.querySelector(".lightbox__image");
 
-const img = liRef.querySelector(".js-img");
-const imgDataSource = img.getAttribute("data-source");
-
 const handleOriginalImageOpen = (event) => {
   event.preventDefault();
   // console.log(event.target);
