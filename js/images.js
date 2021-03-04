@@ -130,7 +130,9 @@ const handleModalOpen = (event) => {
 
 const handleModalClose = (event) => {
   lightBoxImg.setAttribute("src", "");
-  if (event.target.nodeName === "ESC" || event.target.nodeName === "BUTTON") {
+  if (!event.target.nodeName === "BUTTON") {
+    return;
+  } else {
     lightBox.classList.remove("is-open");
   }
 };
