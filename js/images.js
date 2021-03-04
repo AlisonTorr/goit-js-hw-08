@@ -98,9 +98,9 @@ imgListRef.append(...imgItems);
 
 const liRef = document.querySelector("li");
 const lightBox = document.querySelector(".js-lightbox");
-const lightboxImg = document.querySelector(".lightbox__image");
+const lightBoxImg = document.querySelector(".lightbox__image");
 
-console.dir(lightboxImg);
+console.dir(lightBoxImg);
 const img = liRef.querySelector(".js-img");
 const imgDataSource = img.getAttribute("data-source");
 
@@ -120,18 +120,18 @@ const handleModalOpen = (event) => {
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    lightBox.classList.add("lightbox.is-open");
+    lightBox.classList.add("is-open");
   }
 
   const dataSource = event.target.dataset.source;
   console.log(dataSource);
-  lightboxImg.setAttribute("src", dataSource);
+  lightBoxImg.setAttribute("src", dataSource);
 };
 
 const handleModalClose = (event) => {
-  lightboxImg.setAttribute("src", "");
+  lightBoxImg.setAttribute("src", "");
   if (event.target.nodeName === "ESC" || event.target.nodeName === "BUTTON") {
-    lightBox.classList.remove("lightbox.is-open");
+    lightBox.classList.remove("is-open");
   }
 };
 
