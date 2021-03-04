@@ -64,10 +64,10 @@ const images = [
   },
 ];
 
-const getOriginalImg = images.forEach((image) => {
+const getOriginalImg = (image) => {
   const originalImageRef = image.orginal;
   return originalImageRef;
-});
+};
 
 const createImgItem = (image) => {
   const liRef = document.createElement("li");
