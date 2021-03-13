@@ -128,6 +128,7 @@ const handleModalOpen = (event) => {
 };
 
 const handleModalClose = (event) => {
+  console.log(event.target.nodeName);
   lightBoxImg.setAttribute("src", "");
   if (!event.target.nodeName === "BUTTON") {
     return;
