@@ -122,7 +122,7 @@ const handleModalOpen = (event) => {
   }
 
   const dataSource = event.target.dataset.source;
-  const dataAlt = event.target.dataset.alt;
+  const dataAlt = event.target.alt;
   lightBoxImg.setAttribute("src", dataSource);
   lightBoxImg.setAttribute("alt", dataAlt);
 };
