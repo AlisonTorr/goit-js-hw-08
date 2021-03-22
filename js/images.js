@@ -65,7 +65,7 @@ const handleModalOpen = (event) => {
 
 const handleModalClose = (event) => {
   lightBoxImg.setAttribute("src", "");
-  if (!event.target.nodeName === "SVG") {
+  if (event.target.nodeName !== "BTN") {
     return;
   } else {
     lightBox.classList.remove("is-open");
