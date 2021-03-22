@@ -1,8 +1,3 @@
-// const getOriginalImg = (image) => {
-//   const originalImageRef = image.orginal;
-//   return originalImageRef;
-// };
-
 import images from "./images-source.js";
 
 const createImgItem = (image) => {
@@ -33,13 +28,14 @@ imgListRef.append(...imgItems);
 imgListRef.classList.add("gallery");
 
 // const liRef = document.querySelector("li");
-const lightBox = document.querySelector(".js-lightbox");
-const lightBoxImg = document.querySelector(".lightbox__image");
+const lightbox = document.querySelector(".js-lightbox");
+const lightboxImg = document.querySelector(".lightbox__image");
+const lightboxBtn = document.querySelector(".lightbox__button");
 
 const handleOriginalImageOpen = (event) => {
   event.preventDefault();
 
-  if (event.target.nodeName !== "IMG") {
+  if (event.target.nodeName !== "BTN") {
     return;
   } else {
     event.target.setAttribute("src", event.target.dataset.source);
@@ -49,30 +45,28 @@ const handleOriginalImageOpen = (event) => {
 const handleModalOpen = (event) => {
   event.preventDefault();
 
-  console.log(event.target);
-
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    lightBox.classList.add("is-open");
+    lightbox.classList.add("is-open");
   }
 
   const dataSource = event.target.dataset.source;
   const dataAlt = event.target.alt;
-  lightBoxImg.setAttribute("src", dataSource);
-  lightBoxImg.setAttribute("alt", dataAlt);
+  lightboxImg.setAttribute("src", dataSource);
+  lightboxImg.setAttribute("alt", dataAlt);
 };
 
 const handleModalClose = (event) => {
-  lightBoxImg.setAttribute("src", "");
-  console.log(event.target.nodeName);
-  if (event.target.nodeName !== "BTN") {
+  lightboxImg.setAttribute("src", "");
+  console.log(event.target);
+  if (event.target !== lightboxBtn) {
     return;
   } else {
-    lightBox.classList.remove("is-open");
+    lightbox.classList.remove("is-open");
   }
 };
 
 imgListRef.addEventListener("click", handleModalOpen);
 imgListRef.addEventListener("click", handleOriginalImageOpen);
-lightBox.addEventListener("click", handleModalClose);
+lightbox.addEventListener("click", handleModalClose);
