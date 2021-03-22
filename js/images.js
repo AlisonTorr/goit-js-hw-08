@@ -32,7 +32,7 @@ const imgListRef = document.querySelector(".js-gallery");
 imgListRef.append(...imgItems);
 imgListRef.classList.add("gallery");
 
-const liRef = document.querySelector("li");
+// const liRef = document.querySelector("li");
 const lightBox = document.querySelector(".js-lightbox");
 const lightBoxImg = document.querySelector(".lightbox__image");
 
@@ -65,6 +65,7 @@ const handleModalOpen = (event) => {
 
 const handleModalClose = (event) => {
   lightBoxImg.setAttribute("src", "");
+  console.log(event.target.nodeName);
   if (event.target.nodeName !== "BTN") {
     return;
   } else {
