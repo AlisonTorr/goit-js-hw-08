@@ -30,7 +30,6 @@ imgListRef.classList.add("gallery");
 // const liRef = document.querySelector("li");
 const lightbox = document.querySelector(".js-lightbox");
 const lightboxImg = document.querySelector(".lightbox__image");
-const lightboxBtn = document.querySelector(".lightbox__button");
 
 const handleOriginalImageOpen = (event) => {
   event.preventDefault();
@@ -60,7 +59,7 @@ const handleModalOpen = (event) => {
 const handleModalClose = (event) => {
   lightboxImg.setAttribute("src", "");
   console.log(event.target);
-  if (event.target !== lightboxBtn) {
+  if (event.target.nodeName !== "BUTTON") {
     return;
   } else {
     lightbox.classList.remove("is-open");
